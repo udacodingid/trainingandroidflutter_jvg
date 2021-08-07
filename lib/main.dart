@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainingandroidflutter_jvg/page_kedua.dart';
+import 'package:trainingandroidflutter_jvg/ui/PageLoginRegister.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: PageKedua(),
+      home: PageBeranda(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -113,7 +114,9 @@ class PageBeranda extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold),
                 )),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
                 color: Colors.blue,
                 padding: EdgeInsets.all(16),
@@ -122,7 +125,9 @@ class PageBeranda extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
                 )),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
                 color: Colors.green,
                 padding: EdgeInsets.all(16),
@@ -131,7 +136,9 @@ class PageBeranda extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
                 )),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
                 color: Colors.yellow,
                 padding: EdgeInsets.all(16),
@@ -140,6 +147,47 @@ class PageBeranda extends StatelessWidget {
                   style: TextStyle(
                       color: Colors.redAccent, fontWeight: FontWeight.bold),
                 )),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              color: Colors.yellow,
+              padding: EdgeInsets.all(16),
+              child: MaterialButton(
+                child: Text('Page 2'),
+                onPressed: () {
+                  //pindah ke page lain : navigator
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PageKedua()));
+                },
+              ),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              color: Colors.yellow,
+              padding: EdgeInsets.all(16),
+              child: MaterialButton(
+                child: Text('Page 3'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PageKetiga()));
+                },
+              ),
+            ),
+
+            Container(
+              color: Colors.yellow,
+              padding: EdgeInsets.all(16),
+              child: MaterialButton(
+                child: Text('Page Login Register'),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PageLogin()));
+                },
+              ),
+            )
           ],
         ),
       ),
