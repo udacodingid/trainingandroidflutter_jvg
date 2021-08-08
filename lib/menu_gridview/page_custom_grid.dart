@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trainingandroidflutter_jvg/menu_gridview/page_detail_foto.dart';
 
 class PageCustomGrid extends StatefulWidget {
   const PageCustomGrid({Key? key}) : super(key: key);
@@ -31,7 +32,9 @@ class _PageCustomGridState extends State<PageCustomGrid> {
         padding: EdgeInsets.all(10),
         child: Card(
           child: InkWell(
-            onTap: (){},
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PageDetailFoto(nNamaFoto: namaFoto, nGambar: gambarFoto!)));
+            },
             child: Column(
               children: [
                 Padding(padding: EdgeInsets.all(5)),

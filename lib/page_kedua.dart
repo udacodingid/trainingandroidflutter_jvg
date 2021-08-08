@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:trainingandroidflutter_jvg/utils_widget/util_bagianicon.dart';
 
 class PageKedua extends StatelessWidget {
   @override
@@ -79,7 +80,9 @@ class PageKetiga extends StatelessWidget {
                print("ini di klik");
 
              },
-                child: Text('Ini coba di klik'))
+                child: Text('Ini coba di klik')),
+
+            BagianIcon()
           ],
         ),
       ),
