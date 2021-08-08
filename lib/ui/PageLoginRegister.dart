@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainingandroidflutter_jvg/ui/PageHomeScreen.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class PageLogin extends StatefulWidget {
   const PageLogin({Key? key}) : super(key: key);
@@ -54,13 +55,31 @@ class _PageLoginState extends State<PageLogin> {
 
               SizedBox(height: 10,),
               MaterialButton(onPressed: (){
+
                 //proses onBackground
                 setState(() {
 
                   print("username : " + etUsername.text);//ngambil data dari edittext --> cukup .text
                   print("password : " + etPassword.text);
 
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PageHomeScreen(nUsername: etUsername.text, nPassword: etPassword.text)));
+                  //menambahkan kondisi apabila username != admin dan pass != admin --> dia gak bisa login
+                  String nName = etUsername.text;
+                  String nPass = etPassword.text;
+
+                  if((nName == "admin") && (nPass == "admin")){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>PageHomeScreen(nUsername: etUsername.text, nPassword: etPassword.text)));
+                  }else{
+                    print("username atau password salah!!");
+                    Fluttertoast.showToast(
+                        msg: "Username atau password salah!!",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0
+                    );
+                  }
                 });
               },
                 color: Colors.green,
@@ -70,8 +89,8 @@ class _PageLoginState extends State<PageLogin> {
               SizedBox(height: 10,),
               InkWell(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PageRegister()));
-
+                    // Navigator.push(context, MaterialPageRoute(builder: (context)=> PageRegister()));
+                    Navigator.of(context).pushNamed('/pageRegister');
                   },
                   child: Text('Dont have an account ? Please Register', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold)))
             ],
@@ -148,3 +167,12 @@ class _PageRegisterState extends State<PageRegister> {
     );
   }
 }
+
+
+//notification widget
+//berfungsi informasi2 atau seperti notif
+//toast, snackbar, alert dialog
+
+//Navigator
+//push : dari class A ke class B
+//pop : dari class B ke class B (kembali)

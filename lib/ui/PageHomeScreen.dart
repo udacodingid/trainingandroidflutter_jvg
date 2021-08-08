@@ -26,6 +26,14 @@ class _PageHomeScreenState extends State<PageHomeScreen> {
             SizedBox(height: 30,),
             Text('Hi Welcome ,username anda :  ${widget.nUsername}'),
             Text('Password anda : ' + widget.nPassword),
+            SizedBox(height: 30,),
+            MaterialButton(onPressed: (){
+              Navigator.pop(context);
+            },
+              color: Colors.green,
+              textColor: Colors.white,
+              child: Text('Back'),
+            )
           ],
         ),
       ),

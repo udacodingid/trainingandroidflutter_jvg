@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:trainingandroidflutter_jvg/menu_gridview/page_custom_grid.dart';
+import 'package:trainingandroidflutter_jvg/menu_gridview/page_simple_grid.dart';
+import 'package:trainingandroidflutter_jvg/menu_listview/page_list_horizontal.dart';
+import 'package:trainingandroidflutter_jvg/menu_listview/page_listview.dart';
 import 'package:trainingandroidflutter_jvg/page_kedua.dart';
 import 'package:trainingandroidflutter_jvg/ui/PageLoginRegister.dart';
 
@@ -26,6 +30,10 @@ class MyApp extends StatelessWidget {
       ),
       home: PageBeranda(),
       debugShowCheckedModeBanner: false,
+      routes: <String, WidgetBuilder>{
+        '/pageRegister' :  (BuildContext context) => PageRegister(),
+        '/pageListview' :  (BuildContext context) => PageListView(),
+      },
     );
   }
 }
@@ -109,10 +117,15 @@ class PageBeranda extends StatelessWidget {
             Container(
                 color: Colors.redAccent,
                 padding: EdgeInsets.all(16),
-                child: Text(
-                  'Text 1',
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.of(context).pushNamed('/pageListview');
+                  },
+                  child: Text(
+                    'Lisview',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
                 )),
             SizedBox(
               height: 10,
@@ -120,10 +133,15 @@ class PageBeranda extends StatelessWidget {
             Container(
                 color: Colors.blue,
                 padding: EdgeInsets.all(16),
-                child: Text(
-                  'Text 3',
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PageListHorizontal()));
+                  },
+                  child: Text(
+                    'List Horizontal',
+                    style: TextStyle(
+                        color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  ),
                 )),
             SizedBox(
               height: 10,
@@ -131,10 +149,15 @@ class PageBeranda extends StatelessWidget {
             Container(
                 color: Colors.green,
                 padding: EdgeInsets.all(16),
-                child: Text(
-                  'Text 4',
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PageGridview()));
+                  },
+                  child: Text(
+                    'Simple Grid',
+                    style: TextStyle(
+                        color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  ),
                 )),
             SizedBox(
               height: 10,
@@ -142,10 +165,15 @@ class PageBeranda extends StatelessWidget {
             Container(
                 color: Colors.yellow,
                 padding: EdgeInsets.all(16),
-                child: Text(
-                  'Text 5',
-                  style: TextStyle(
-                      color: Colors.redAccent, fontWeight: FontWeight.bold),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PageCustomGrid()));
+                  },
+                  child: Text(
+                    'Grid Foto',
+                    style: TextStyle(
+                        color: Colors.redAccent, fontWeight: FontWeight.bold),
+                  ),
                 )),
             SizedBox(
               height: 10,
