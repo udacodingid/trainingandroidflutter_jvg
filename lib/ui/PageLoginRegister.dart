@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:trainingandroidflutter_jvg/ui/PageHomeScreen.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -110,6 +111,8 @@ class PageRegister extends StatefulWidget {
 }
 
 class _PageRegisterState extends State<PageRegister> {
+
+  int _groupKelamin = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,9 +149,46 @@ class _PageRegisterState extends State<PageRegister> {
                     hintText: 'Password ...'
                 ),
               ),
+              SizedBox(height: 10,),
+              TextFormField(
+               minLines: 3,
+                maxLines: 10,
+                decoration: InputDecoration(
+                    hintText: 'Moto Hidup ...',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8))
+                ),
+              ),
+              SizedBox(height: 10,),
+              Row(
+                children: [
+                  Radio(
+                    onChanged: (int? i){
+                      setState(() {
+                       _groupKelamin = i!;
+                      });
+                    },
+                    value: 0,
+                    groupValue: _groupKelamin,
+                  ),
+                  Text('Laki-laki'),
+                  Radio(
+                    onChanged: (int? i){
+                      setState(() {
+                        _groupKelamin = i!;
+                      });
+                    },
+                    value: 1,
+                    groupValue: _groupKelamin,
+                  ),
+                  Text('Perempuan'),
+                ],
+              ),
+
 
               SizedBox(height: 10,),
-              MaterialButton(onPressed: (){},
+              MaterialButton(onPressed: (){
+                print("Jenis Kelamin : " + ((_groupKelamin == 0 ? "Laki-Laki" : "Wanita")));
+              },
                 color: Colors.green,
                 child: Text('Register', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),),
               ),

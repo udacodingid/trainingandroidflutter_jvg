@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:trainingandroidflutter_jvg/menu_drawe_nav/page_nav_bar_menu.dart';
 import 'package:trainingandroidflutter_jvg/menu_gridview/page_custom_grid.dart';
 import 'package:trainingandroidflutter_jvg/menu_gridview/page_simple_grid.dart';
 import 'package:trainingandroidflutter_jvg/menu_listview/page_list_horizontal.dart';
 import 'package:trainingandroidflutter_jvg/menu_listview/page_listview.dart';
 import 'package:trainingandroidflutter_jvg/page_kedua.dart';
+import 'package:trainingandroidflutter_jvg/page_menu_dropdown.dart';
+import 'package:trainingandroidflutter_jvg/page_number_picker.dart';
+import 'package:trainingandroidflutter_jvg/page_search_listview.dart';
 import 'package:trainingandroidflutter_jvg/ui/PageLoginRegister.dart';
 
 void main() {
@@ -31,8 +35,8 @@ class MyApp extends StatelessWidget {
       home: PageBeranda(),
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/pageRegister' :  (BuildContext context) => PageRegister(),
-        '/pageListview' :  (BuildContext context) => PageListView(),
+        '/pageRegister': (BuildContext context) => PageRegister(),
+        '/pageListview': (BuildContext context) => PageListView(),
       },
     );
   }
@@ -111,112 +115,200 @@ class PageBeranda extends StatelessWidget {
       // ),
 
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-                color: Colors.redAccent,
-                padding: EdgeInsets.all(16),
-                child: InkWell(
-                  onTap: (){
-                    Navigator.of(context).pushNamed('/pageListview');
-                  },
-                  child: Text(
-                    'Lisview',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                )),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-                color: Colors.blue,
-                padding: EdgeInsets.all(16),
-                child: InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PageListHorizontal()));
-                  },
-                  child: Text(
-                    'List Horizontal',
-                    style: TextStyle(
-                        color: Colors.redAccent, fontWeight: FontWeight.bold),
-                  ),
-                )),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-                color: Colors.green,
-                padding: EdgeInsets.all(16),
-                child: InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PageGridview()));
-                  },
-                  child: Text(
-                    'Simple Grid',
-                    style: TextStyle(
-                        color: Colors.redAccent, fontWeight: FontWeight.bold),
-                  ),
-                )),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                  color: Colors.redAccent,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/pageListview');
+                    },
+                    child: Text(
+                      'Lisview',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageListHorizontal()));
+                    },
+                    child: Text(
+                      'List Horizontal',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageNumberPicker()));
+                    },
+                    child: Text(
+                      'Number Picker',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageSearchList()));
+                    },
+                    child: Text(
+                      'Searchview',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.green,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageGridview()));
+                    },
+                    child: Text(
+                      'Simple Grid',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.green,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageNavBarMenu()));
+                    },
+                    child: Text(
+                      'Nav Bar Menu',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.green,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageMenuDropDown()));
+                    },
+                    child: Text(
+                      'DropDown Menu',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.yellow,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageCustomGrid()));
+                    },
+                    child: Text(
+                      'Grid Foto',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
                 color: Colors.yellow,
                 padding: EdgeInsets.all(16),
-                child: InkWell(
-                  onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=> PageCustomGrid()));
+                child: MaterialButton(
+                  child: Text('Page 2'),
+                  onPressed: () {
+                    //pindah ke page lain : navigator
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => PageKedua()));
                   },
-                  child: Text(
-                    'Grid Foto',
-                    style: TextStyle(
-                        color: Colors.redAccent, fontWeight: FontWeight.bold),
-                  ),
-                )),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              color: Colors.yellow,
-              padding: EdgeInsets.all(16),
-              child: MaterialButton(
-                child: Text('Page 2'),
-                onPressed: () {
-                  //pindah ke page lain : navigator
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PageKedua()));
-                },
+                ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              color: Colors.yellow,
-              padding: EdgeInsets.all(16),
-              child: MaterialButton(
-                child: Text('Page 3'),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PageKetiga()));
-                },
+              SizedBox(
+                height: 10,
               ),
-            ),
-
-            Container(
-              color: Colors.yellow,
-              padding: EdgeInsets.all(16),
-              child: MaterialButton(
-                child: Text('Page Login Register'),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => PageLogin()));
-                },
+              Container(
+                color: Colors.yellow,
+                padding: EdgeInsets.all(16),
+                child: MaterialButton(
+                  child: Text('Page 3'),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => PageKetiga()));
+                  },
+                ),
               ),
-            )
-          ],
+              Container(
+                color: Colors.yellow,
+                padding: EdgeInsets.all(16),
+                child: MaterialButton(
+                  child: Text('Page Login Register'),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => PageLogin()));
+                  },
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
