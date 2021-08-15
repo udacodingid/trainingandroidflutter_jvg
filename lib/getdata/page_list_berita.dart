@@ -60,7 +60,9 @@ class ItemListBerita extends StatelessWidget {
         return Container(
           padding: EdgeInsets.all(10),
           child: GestureDetector(
-            onTap: (){},
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PageDetailBerita(listBerita: list, indexBerita: index)));
+            },
             child: Card(
               child: ListTile(
                 title: Text(list[index]['judul'], style: TextStyle(
@@ -69,16 +71,88 @@ class ItemListBerita extends StatelessWidget {
                 subtitle: Text(list[index]['tgl_berita'], style: TextStyle(
                   fontSize: 9
                 ),),
-                trailing: Image.network('http://192.168.10.48/server_berita/gambar/${list[index]['foto']}',
-                  fit: BoxFit.cover,
-                  width: 60,
-                  height: 60,
+                trailing: Expanded(
+                  child: Image.network('http://192.168.10.48/server_berita/gambar/${list[index]['foto']}',
+                    fit: BoxFit.cover,
+                    width: 60,
+                    height: 60,
+                  ),
                 ),
               ),
             ),
           ),
         );
       },
+    );
+  }
+}
+
+class PageDetailBerita extends StatelessWidget {
+  List listBerita;
+  int indexBerita;
+
+  PageDetailBerita({required this.listBerita, required this.indexBerita});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(listBerita[indexBerita]['judul']),
+        backgroundColor: Colors.orangeAccent,
+      ),
+
+      body: ListView(
+        children: [
+          Image.network('http://192.168.10.48/server_berita/gambar/${listBerita[indexBerita]['foto']}',
+            fit: BoxFit.cover,
+          ),
+
+          Container(
+            padding: EdgeInsets.all(10),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: Text(listBerita[indexBerita]['judul'],
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.brown
+                          ),
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: Text(listBerita[indexBerita]['tgl_berita'],
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.brown
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Icon(Icons.star, color: Colors.orangeAccent,)
+              ],
+            ),
+          ),
+
+          Container(
+            padding: EdgeInsets.only(left: 10, top: 0, right: 10, bottom: 2),
+            child: Text(listBerita[indexBerita]['isi'],
+              style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.brown
+              ),
+          )),
+        ],
+      ),
     );
   }
 }
