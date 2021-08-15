@@ -143,6 +143,11 @@ class _PageSearchListState extends State<PageSearchList> {
 
 //https://jsonplaceholder.typicode.com/users
 
+// retrieve data Akses data dari server
+//1 webservices api --> json atau xml
+//2 convert webservices menjadi model --? quicktype.io
+//3 tambahkan library untuk akses http atau dio di project flutter
+
 
 
 

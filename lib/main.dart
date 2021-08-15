@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:trainingandroidflutter_jvg/getdata/page_list_berita.dart';
+import 'package:trainingandroidflutter_jvg/getdata/page_list_user.dart';
 import 'package:trainingandroidflutter_jvg/menu_drawe_nav/page_nav_bar_menu.dart';
 import 'package:trainingandroidflutter_jvg/menu_gridview/page_custom_grid.dart';
 import 'package:trainingandroidflutter_jvg/menu_gridview/page_simple_grid.dart';
@@ -151,6 +153,26 @@ class PageBeranda extends StatelessWidget {
                           color: Colors.redAccent, fontWeight: FontWeight.bold),
                     ),
                   )),
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageListBerita()));
+                    },
+                    child: Text(
+                      'Berita Apps',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+
 
               SizedBox(
                 height: 10,
@@ -206,6 +228,26 @@ class PageBeranda extends StatelessWidget {
                     },
                     child: Text(
                       'Simple Grid',
+                      style: TextStyle(
+                          color: Colors.redAccent, fontWeight: FontWeight.bold),
+                    ),
+                  )),
+
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.green,
+                  padding: EdgeInsets.all(16),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageListUsers()));
+                    },
+                    child: Text(
+                      'List Users',
                       style: TextStyle(
                           color: Colors.redAccent, fontWeight: FontWeight.bold),
                     ),
